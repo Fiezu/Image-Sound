@@ -7,16 +7,6 @@ namespace MusicLibrary
   {
     static void Main(string[] args)
     {
-      // Console.WriteLine("Hello World!");    
-      // // Type your username and press enter
-      // Console.Write("Enter username: ");
-
-      // // Create a string variable and get user input from the keyboard and store it in the variable
-      // string userName = Console.ReadLine();
-
-      // // Print the value of the variable (userName), which will display the input value
-      // Console.WriteLine("Username is: " + userName);
-
       List<MusicDetails> mscDetails = new List<MusicDetails>();
       string answer;
       do{
@@ -33,9 +23,10 @@ namespace MusicLibrary
         Console.Write("Do you want to add more songs? (Yes/No): ");
         answer = Console.ReadLine();
 
-        mscDetails.Add(new MusicDetails(name,title,genre,duration,year));
-      }while(answer == "YES" || answer == "yes");
-    
+        mscDetails.Add(new MusicDetails(name,title,genre.ToUpper(),duration,year));
+      }while(answer.ToUpper() == "YES");
+
+      Console.WriteLine();
       foreach(MusicDetails items in mscDetails){
         Console.WriteLine("Name: "+items.artist);
         Console.WriteLine("Title: "+items.title);
@@ -44,6 +35,22 @@ namespace MusicLibrary
         Console.WriteLine("Year: "+items.year);
         Console.WriteLine();
       }
+      Console.WriteLine("Lists of genres inside the list: ");
+      foreach(MusicDetails items in mscDetails){
+        Console.WriteLine(items.genre);
+      }
+      string ansGenre;
+      Console.Write("Please enter what genre would you like based on the lists above: ");
+      ansGenre = Console.ReadLine();
+      bool identifyGenre = false;
+      int count = 0;
+
+      Console.WriteLine("Here are the lists of "+ansGenre);
+      foreach(MusicDetails items in mscDetails){
+        count = items.getMusicTracks(items, ansGenre, count);
+      }
+      if(count == 0)
+        Console.WriteLine("Genre "+ansGenre+" in not the lists!");
     }
   }
 }
