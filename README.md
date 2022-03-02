@@ -11,7 +11,7 @@ The sqlstatment.sql contains a query where it returns:
 
 The listofmusictracks.html contains a list of music tracks.
 
-The Program.cs contains a program where informations are inserted in a list and display it: 
-* returns at least one track or more.
-* Test that GetMusicTracks returns tracks with matching genre.
-* Test that GetMusicTracks returns no tracks with zero duration.
+The Program.cs contains a program where informations are inserted in a list and uses the class model from MusicLibrary.cs and it: 
+* returns more than one tracks.
+* returns tracks with matching genre.
+* returns no tracks with zero duration.
