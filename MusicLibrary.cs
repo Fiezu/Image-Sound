@@ -27,8 +27,7 @@ namespace MusicLibrary
 
         public int getMusicTracks(MusicDetails tracks, string ansGenre, int count){
             string aGenre = ansGenre.ToUpper();
-            
-            MusicDetails obj = new MusicDetails();
+
             if(tracks.genre == aGenre && tracks.duration != 0.00){
                 List<MusicDetails> music = new List<MusicDetails>();
                 music.Add(new MusicDetails(tracks.artist,tracks.title,tracks.genre.ToUpper(),tracks.duration,tracks.year));
