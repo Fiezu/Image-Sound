@@ -1,4 +1,4 @@
-SELECT name,title,year,duration
+SELECT name,title,genre,year,duration
 FROM songs
 INNER JOIN artists
 ON songs.id_artist = artists.id
